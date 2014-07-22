@@ -11,7 +11,7 @@ algorithms = {
 	'a-star': pathfinders.a_star
 }
 
-def usage:
+def usage():
 	print 'Usage: python hermes.py [algorithm] [input_file] [start_x] [start_y] [end_x] [end_y]'
 
 if __name__ == '__main__':
