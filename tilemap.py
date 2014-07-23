@@ -21,7 +21,7 @@ def read_file_to_map(filename):
 
 # generates a random wxh map at filename,
 def generate(filename,w,h,seed):
-	if not seed: seed='0000011'
+	if not seed: seed='XXXXX1123'
 	with open(filename, 'w') as f:
 		# f.write("%d %d" % (w,h))
 		for y in xrange(h):
