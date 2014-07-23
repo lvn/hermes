@@ -28,6 +28,13 @@ XXXX111''',
 1122211
 1111111
 1111111''',
+'''1111111
+1113111
+1233311
+1111211
+1111211
+1111111
+1111111'''
 ]
 
 test_maps = [tilemap.string_to_map(map_string) for map_string in test_map_strings]
@@ -73,6 +80,15 @@ class BFSTestCase4(unittest.TestCase):
 		path = pathfinders.breadth_first_search(tmap, start, end)
 		assert(path == [(3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 6), (2, 6), (3, 6), (3, 5), (3, 4), (3, 3), (3, 2)])
 
+class BFSTestCase5(unittest.TestCase):
+	def runTest(self):
+		tmap = test_maps[4]
+		start = (3,3)
+		end = (3,0)
+
+		path = pathfinders.breadth_first_search(tmap, start, end)
+		assert(path == [(3,3), (3,2), (3,1), (3,0)])
+
 class DijkstraTestCase1(unittest.TestCase):
 	def runTest(self):
 
@@ -109,6 +125,15 @@ class DijkstraTestCase4(unittest.TestCase):
 
 		path = pathfinders.dijkstra(tmap, start, end)
 		assert(path == [(3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 6), (2, 6), (2, 5), (2, 4), (2, 3), (2, 2), (3, 2)])
+
+class DijkstraTestCase5(unittest.TestCase):
+	def runTest(self):
+		tmap = test_maps[4]
+		start = (3,3)
+		end = (3,0)
+
+		path = pathfinders.dijkstra(tmap, start, end)
+		assert(path == [(3, 3), (2, 3), (2, 2), (2, 1), (2, 0), (3, 0)])
 
 class GreedyBFSTestCase1(unittest.TestCase):
 	def runTest(self):
@@ -172,6 +197,15 @@ class AStarTestCase5(unittest.TestCase):
 
 		path = pathfinders.a_star(tmap, start, end)
 		assert(path == [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6)])
+
+class AStarTestCase6(unittest.TestCase):
+	def runTest(self):
+		tmap = test_maps[4]
+		start = (3,3)
+		end = (3,0)
+
+		path = pathfinders.a_star(tmap, start, end)
+		assert(path == [(3, 3), (2, 3), (2, 2), (2, 1), (2, 0), (3, 0)])
 
 if __name__ == '__main__':
 	unittest.main()
