@@ -11,6 +11,18 @@ def get_neighbors(tilemap, position):
 	(x,y) = position
 	return [item for item in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)] if position_passable(tilemap,item)]
 
+# reconstructs path from a came_from dict, a startpoint, and an endpoint
+def reconstruct_path(came_from, start, end):
+	path = []
+	current = end
+	while current != start:
+		#print current
+		path.insert(0,current)
+		current = came_from[current]
+	else:
+		path.insert(0,start)
+	return path
+
 # standard BFS from startpoint to endpoint. 
 def breadth_first_search(tilemap, start, end):
 	height = len(tilemap)
@@ -25,14 +37,7 @@ def breadth_first_search(tilemap, start, end):
 
 		# check if current node is the destination
 		if current == end: # if so, return path
-			path = []
-			while current != start:
-				#print current
-				path.insert(0,current)
-				current = came_from[current]
-			else:
-				path.insert(0,start)
-			return path
+			return reconstruct_path(came_from, start, end)
 
 		neighbors = get_neighbors(tilemap, current)
 		for neighbor in neighbors:
@@ -53,14 +58,7 @@ def dijkstra(tilemap, start, end):
 
 		# check if current node is the destination
 		if current == end: # if so, return path
-			path = []
-			while current != start:
-				#print current
-				path.insert(0,current)
-				current = came_from[current]
-			else:
-				path.insert(0,start)
-			return path
+			return reconstruct_path(came_from, start, end)
 
 		for neighbor in get_neighbors(tilemap, current):
 			if neighbor not in tentative_distance:

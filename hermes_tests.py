@@ -2,13 +2,22 @@ import unittest, tilemap, pathfinders
 
 # Unit testing module for hermes
 
+test_map_strings = [
+'''X0000X0
+0X0XXX0
+000110X
+XXXX000'''
+]
+
+test_maps = [tilemap.string_to_map(map_string) for map_string in test_map_strings]
+
 class StringToMapTestCase1(unittest.TestCase):
 	def runTest(self):
 		assert(tilemap.string_to_map('X00\n012\nXYZ') == [[None, 0, 0], [0, 1, 2], [None, None, None]])
 
 class BFSTestCase1(unittest.TestCase):
 	def runTest(self):
-		tmap = tilemap.string_to_map('X0000X0\n0X0XXX0\n000110X\nXXXX000')
+		tmap = test_maps[0]
 		start = (4,0)
 		end = (6,3)
 
@@ -17,7 +26,7 @@ class BFSTestCase1(unittest.TestCase):
 
 class BFSTestCase2(unittest.TestCase):
 	def runTest(self):
-		tmap = tilemap.string_to_map('X0000X0\n0X0XXX0\n000110X\nXXXX000')
+		tmap = test_maps[0]
 		start = (5,0) # start tile is impassable
 		end = (6,3)
 
@@ -27,7 +36,7 @@ class BFSTestCase2(unittest.TestCase):
 class DijkstraTestCase1(unittest.TestCase):
 	def runTest(self):
 
-		tmap = tilemap.string_to_map('X0000X0\n0X0XXX0\n000110X\nXXXX000')
+		tmap = test_maps[0]
 		start = (4,0)
 		end = (6,3)
 
