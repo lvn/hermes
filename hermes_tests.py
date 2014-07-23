@@ -1,10 +1,10 @@
-import unittest, filereader, pathfinders
+import unittest, tilemap, pathfinders
 
 # Unit testing module for hermes
 
 class BFSTestCase1(unittest.TestCase):
 	def runTest(self):
-		tmap = filereader.string_to_map('X0000X0\n0X0XXX0\n000110X\nXXXX000')
+		tmap = tilemap.string_to_map('X0000X0\n0X0XXX0\n000110X\nXXXX000')
 		start = (4,0)
 		end = (6,3)
 		

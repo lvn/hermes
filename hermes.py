@@ -1,4 +1,4 @@
-import sys, filereader, pathfinders
+import sys, tilemap, pathfinders
 
 # the command line interface: demonstrates how the pathfinding algorithms work.
 
@@ -11,16 +11,16 @@ algorithms = {
 	'a-star': pathfinders.a_star
 }
 
-def usage():
+def print_usage():
 	print 'Usage: python hermes.py [algorithm] [input_file] [start_x] [start_y] [end_x] [end_y]'
 
 if __name__ == '__main__':
 	try:
 		algorithm = algorithms[sys.argv[1]]
-		tile_map = filereader.read_file_to_map(sys.argv[2])
+		tile_map = tilemap.read_file_to_map(sys.argv[2])
 		start = (sys.argv[3],sys.argv[4])
 		end = (sys.argv[5],sys.argv[6])
 
 		print algorithm(tile_map, start, end)
 	except:
-		usage()
+		print_usage()
