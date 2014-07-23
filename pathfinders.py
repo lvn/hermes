@@ -1,4 +1,4 @@
-from Queue import Queue
+import Queue
 
 def position_passable(tilemap, position):
 	width = len(tilemap[0])
@@ -16,12 +16,12 @@ def breadth_first_search(tilemap, start, end):
 	height = len(tilemap)
 	width = len(tilemap[0])
 
-	frontier = [] 
-	if position_passable(tilemap, start): frontier.append(start)
+	frontier = Queue.Queue()
+	if position_passable(tilemap, start): frontier.put(start)
 	came_from = {start:None}
 
-	while frontier:
-		current = frontier.pop(0)
+	while not frontier.empty():
+		current = frontier.get()
 
 		# check if current node is the destination
 		if current == end: # if so, return path
@@ -36,20 +36,20 @@ def breadth_first_search(tilemap, start, end):
 
 		neighbors = get_neighbors(tilemap, current)
 		for neighbor in neighbors:
-			if neighbor not in frontier and neighbor not in came_from:
-				frontier.append(neighbor)
+			if neighbor not in came_from:
+				frontier.put(neighbor)
 				came_from[neighbor] = current
 	return []
 
 # dijkstra's algorithm
 def dijkstra(tilemap, start, end):
-	frontier = [] 
-	if position_passable(tilemap, start): frontier.append(start)
+	frontier = Queue.PriorityQueue()
+	if position_passable(tilemap, start): frontier.put((0,start))
 	came_from = {start:None}
 	tentative_distance = {start:0}
 
 	while frontier:
-		current = frontier.pop(0)
+		current = frontier.get()[1]
 
 		# check if current node is the destination
 		if current == end: # if so, return path
@@ -63,8 +63,10 @@ def dijkstra(tilemap, start, end):
 			return path
 
 		for neighbor in get_neighbors(tilemap, current):
-			if neighbor not in frontier and neighbor not in tentative_distance:
-				frontier.put(neighbor)
+			if neighbor not in tentative_distance:
+				new_dist = tentative_distance[current] + tilemap[neighbor[1]][neighbor[0]]
+				frontier.put((new_dist, neighbor))
+				tentative_distance[neighbor] = new_dist
 				came_from[neighbor] = current
 	return []
 
