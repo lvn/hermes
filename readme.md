@@ -15,7 +15,7 @@ Tilemap pathfinding library in Python.
 The program will read in the input file as a tilemap, and try to find a path from (`start_x`, `start_y`) to (`end_x`, `end_y`) using the selected algorithm. The program will output a list of points representing the calculated optimal path from (`start_x`, `start_y`) to (`end_x`, `end_y`).
 
 ### The Input File
-By standard, the program takes as input a plaintext file, representing a tilemap. Each tile is a number representing the cost to move into or out of that tile, but 'X' represents an impassible tile. Every character that is not previously mentioned will also be interpreted as `X`. The upper left corner of the map is the origin (0,0), the positive x-direction is to the right, and the positive y-direction is down.
+By standard, the program takes as input a plaintext file, representing a tilemap. Each tile is a number representing the cost to move into that tile, but 'X' represents an impassible tile. Every character that is not previously mentioned will also be interpreted as `X`. The upper left corner of the map is the origin (0,0), the positive x-direction is to the right, and the positive y-direction is down.
 
 The following is an example of a 6x4 grid:
 ```

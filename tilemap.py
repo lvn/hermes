@@ -35,6 +35,7 @@ if __name__ == '__main__':
 			print read_file_to_map(sys.argv[2])
 		elif (sys.argv[1] == 'generate'):
 			generate(sys.argv[2],int(sys.argv[3]),int(sys.argv[4]),sys.argv[5])
-
+		else:
+			raise
 	except:
 		print_usage()
