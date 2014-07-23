@@ -5,7 +5,7 @@ import sys, random
 def print_usage():
 	usage = '''usage: 
 - python mapgen.py read [input_file]
-- python mapgen.py generate [output] [width] [height] [seed]
+- python mapgen.py generate [output_file] [width] [height] [seed]
 '''
 	print usage
 
@@ -31,8 +31,6 @@ def generate(filename,w,h,seed):
 
 if __name__ == '__main__':
 	try:
-		print read_file_to_map(sys.argv[1])
-
 		if (sys.argv[1] == 'read'):
 			print read_file_to_map(sys.argv[2])
 		elif (sys.argv[1] == 'generate'):
