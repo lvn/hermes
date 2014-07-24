@@ -13,6 +13,7 @@ def print_usage():
 def string_to_map(string):
 	return [[int(char) if char.isdigit() else None for char in line] for line in string.split('\n')]
 
+
 # reads a plaintext file into a map 
 def read_file_to_map(filename):
 	with open(filename, 'r') as f:
