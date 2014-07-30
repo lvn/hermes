@@ -30,6 +30,22 @@ def generate(filename,w,h,seed):
 				f.write(str(random.choice(seed)))
 			f.write('\n')
 
+# prints map to stdout, path is optional
+def string_map(grid, path=[]):
+	height = len(grid)
+	width = len(grid[0])
+
+	for coord in path:
+		grid[coord[1]][coord[0]] = '-'
+
+	# reconstructs a map back from a 2D array to a block string
+	output = '\n'.join([''.join([(str(tile) if isinstance(tile,int) else ('-' if (tile == '-') else 'X')) for tile in row]) for row in grid])
+
+	return output
+
+def draw_map(grid, path=[]):
+	print string_map(grid,path)
+
 if __name__ == '__main__':
 	try:
 		if (sys.argv[1] == 'read'):
