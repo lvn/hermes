@@ -56,6 +56,8 @@ def breadth_first_search(graph, start, end):
 	if position_passable(graph, start): 
 		frontier.put(start)
 		came_from = {start:None}
+	else:
+		raise Exception("invalid starting position")
 
 	while not frontier.empty():
 		current = frontier.get()
@@ -79,6 +81,11 @@ def dijkstra(graph, start, end):
 		frontier.put((0,start))
 		came_from = {start:None}
 		tentative_dist = {start:0}
+	else:
+		raise Exception("invalid starting position")
+
+	if not position_passable(graph, end):
+		raise Exception("invalid end position")
 
 	while not frontier.empty():
 		current = frontier.get()[1]
@@ -106,6 +113,11 @@ def greedy_best_first_search(graph, start, end, heuristic='default'):
 	if position_passable(graph, start): 
 		frontier.put((0,start))
 		came_from = {start:None}
+	else:
+		raise Exception("invalid starting position")
+
+	if not position_passable(graph, end):
+		raise Exception("invalid end position")
 
 	while not frontier.empty():
 		current = frontier.get()[1]
@@ -133,6 +145,11 @@ def a_star(graph, start, end, heuristic='default'):
 		frontier.put((0,start)) # aka open set
 		came_from = {start:None} # doubles as the closed set
 		past_dist = {start:0} # aka the past score g(x)
+	else:
+		raise Exception("invalid starting position")
+
+	if not position_passable(graph, end):
+		raise Exception("invalid end position")
 
 	while not frontier.empty():
 		current = frontier.get()[1]
