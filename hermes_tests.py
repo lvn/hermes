@@ -58,8 +58,7 @@ class BFSTestCase2(unittest.TestCase):
 		start = (5,0) # start tile is impassable
 		end = (6,3)
 
-		path = pathfinders.breadth_first_search(tmap, start, end)
-		self.assertRaises('invalid starting position')
+		self.assertRaisesRegexp(Exception, 'invalid starting position', pathfinders.breadth_first_search, tmap, start, end)
 		#assert(path == []) # should return empty path since start tile is impassable
 
 
