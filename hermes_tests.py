@@ -207,5 +207,13 @@ class AStarTestCase6(unittest.TestCase):
 		path = pathfinders.a_star(tmap, start, end)
 		assert(path == [(3, 3), (2, 3), (2, 2), (2, 1), (2, 0), (3, 0)])
 
+'''
+class RiverTestCase(unittest.TestCase):
+	def runTest(self):
+		tmap = tilemap.generate(50,50)
+		tilemap.draw_map(tmap, pathfinders.a_star(tmap, (0,10), (49,39)))
+		assert(True)
+'''
+
 if __name__ == '__main__':
 	unittest.main()

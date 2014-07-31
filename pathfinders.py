@@ -36,8 +36,6 @@ def get_neighbors(graph, position):
 	(x,y) = position
 	return [item for item in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)] if position_passable(graph,item)]
 
-
-
 # reconstructs path from a came_from dict, a startpoint, and an endpoint
 def reconstruct_path(came_from, start, end):
 	path = []

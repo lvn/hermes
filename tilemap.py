@@ -9,9 +9,13 @@ def print_usage():
 '''
 	print usage
 
+# classifies a charater to a tile
+def char_to_tile(char):
+		return int(char) if char.isdigit() else None
+
 # reads string into map (2d array of booleans)
 def string_to_map(string):
-	return [[int(char) if char.isdigit() else None for char in line] for line in string.split('\n')]
+	return [[char_to_tile(char) for char in line] for line in string.split('\n')]
 
 
 # reads a plaintext file into a map 
@@ -21,30 +25,37 @@ def read_file_to_map(filename):
 	return tile_map
 
 # generates a random wxh map at filename,
-def generate(filename,w,h,seed):
-	if not seed: seed='XXXXX1123'
+def generate(w,h,seed='X111122345'):
+	if not seed:
+		raise Exception('invalid seed')
+
+	tile_map = [[char_to_tile(random.choice(seed)) for i in xrange(w)] for j in xrange(h)]
+	return tile_map
+		
+
+def generate_to_file(filename,w,h,seed='X111122345'):
 	with open(filename, 'w') as f:
-		# f.write("%d %d" % (w,h))
-		for y in xrange(h):
-			for x in xrange(w):
-				f.write(str(random.choice(seed)))
-			f.write('\n')
+		f.write(generate(w,h,seed))
+		f.write('\n')
 
 # prints map to stdout, path is optional
-def string_map(grid, path=[]):
+def map_to_string(grid, path=[]):
 	height = len(grid)
 	width = len(grid[0])
 
 	for coord in path:
 		grid[coord[1]][coord[0]] = '-'
 
+	def tile_to_char(tile):
+		return (str(tile) if isinstance(tile,int) else ('-' if (tile == '-') else 'X'))
+
 	# reconstructs a map back from a 2D array to a block string
-	output = '\n'.join([''.join([(str(tile) if isinstance(tile,int) else ('-' if (tile == '-') else 'X')) for tile in row]) for row in grid])
+	output = '\n'.join([''.join([tile_to_char(tile) for tile in row]) for row in grid])
 
 	return output
 
 def draw_map(grid, path=[]):
-	print string_map(grid,path)
+	print map_to_string(grid,path)
 
 if __name__ == '__main__':
 	try:
