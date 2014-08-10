@@ -1,6 +1,6 @@
 Hermes
 =======
-by [Elvin Yung](https://github.com/elvinyung)
+by `Elvin Yung <https://github.com/elvinyung>`
 
 Description
 -----------
@@ -29,13 +29,13 @@ Pathfinding between two points on a tilemap:
 
 Command-line Demo
 -----------------
-`python hermes.py [algorithm] [input_file] [start_x] [start_y] [end_x] [end_y]`
+``python hermes.py [algorithm] [input_file] [start_x] [start_y] [end_x] [end_y]``
 
-The program will read in the input file as a tilemap, and try to find a path from (`start_x`, `start_y`) to (`end_x`, `end_y`) using the selected algorithm. The program will output a list of points representing the calculated optimal path from (`start_x`, `start_y`) to (`end_x`, `end_y`).
+The program will read in the input file as a tilemap, and try to find a path from (``start_x``, ``start_y``) to (``end_x``, ``end_y``) using the selected algorithm. The program will output a list of points representing the calculated optimal path from (``start_x``, ``start_y``) to (``end_x``, ``end_y``).
 
 The Input File
 -----------------
-By standard, the program takes as input a plaintext file, representing a tilemap. Each tile is a number representing the cost to move into that tile, but '0' and 'X' represent impassible tiles. Every character that is not previously mentioned will also be interpreted as `X`. The upper left corner of the map is the origin (0,0), the positive x-direction is to the right, and the positive y-direction is down.
+By standard, the program takes as input a plaintext file, representing a tilemap. Each tile is a number representing the cost to move into that tile, but '0' and 'X' represent impassible tiles. Every character that is not previously mentioned will also be interpreted as ``X``. The upper left corner of the map is the origin (0,0), the positive x-direction is to the right, and the positive y-direction is down.
 
 The following is an example of a 6x4 grid:
 ::
@@ -47,7 +47,7 @@ The following is an example of a 6x4 grid:
 
 Algorithms
 -----------------
-- `bfs` or `breadth-first-search` - [Breadth-first search](http://en.wikipedia.org/wiki/Breadth-first_search).
-- `dijkstra` - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm).
-- `greedy-bfs` or `greedy-best-first-search` - Greedy heuristic variant of [best-first search](http://en.wikipedia.org/wiki/Best-first_search).
-- `a-star` - the [A* search algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm).
+- ``bfs`` or ``breadth-first-search`` - [Breadth-first search](http://en.wikipedia.org/wiki/Breadth-first_search).
+- ``dijkstra`` - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm).
+- ``greedy-bfs`` or ``greedy-best-first-search`` - Greedy heuristic variant of [best-first search](http://en.wikipedia.org/wiki/Best-first_search).
+- ``a-star`` - the [A* search algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm).
