@@ -9,7 +9,7 @@ Tilemap pathfinding library in Python.
 Usage
 -----------
 Converting a two dimensional block of characters into a tilemap:
-.. highlight:: python
+.. code-block:: python
 
     from hermes import tilemap
     tile_map_str = '''X1111X1
@@ -21,7 +21,7 @@ Converting a two dimensional block of characters into a tilemap:
 
 
 Pathfinding between two points on a tilemap:
-.. highlight:: python
+.. code-block:: python
 
     from hermes import pathfinders
     start = (3,0)
@@ -51,5 +51,5 @@ Algorithms
 -----------------
 - ``bfs`` or ``breadth-first-search`` - `Breadth-first search <http://en.wikipedia.org/wiki/Breadth-first_search>`_.
 - ``dijkstra`` - `Dijkstra's algorithm <http://en.wikipedia.org/wiki/Dijkstra's_algorithm>`_.
-- ``greedy-bfs`` or ``greedy-best-first-search`` - Greedy heuristic variant of ` best-first search <http://en.wikipedia.org/wiki/Best-first_search>`_.
+- ``greedy-bfs`` or ``greedy-best-first-search`` - Greedy heuristic variant of `best-first search <http://en.wikipedia.org/wiki/Best-first_search>`_.
 - ``a-star`` - the A* `search algorithm <http://en.wikipedia.org/wiki/A*_search_algorithm>`_.
