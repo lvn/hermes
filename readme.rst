@@ -1,6 +1,6 @@
 Hermes
 =======
-by `Elvin Yung <https://github.com/elvinyung>`
+by `Elvin Yung <https://github.com/elvinyung>`_
 
 Description
 -----------
@@ -9,7 +9,7 @@ Tilemap pathfinding library in Python.
 Usage
 -----------
 Converting a two dimensional block of characters into a tilemap:
-.. code:: python
+.. highlight:: python
     from hermes import tilemap
     tile_map_str = '''X1111X1
     1X1XXX1
@@ -20,7 +20,7 @@ Converting a two dimensional block of characters into a tilemap:
 
 
 Pathfinding between two points on a tilemap:
-.. code:: python
+.. highlight:: python
     from hermes import pathfinders
     start = (3,0)
     end = (3,6)
