@@ -1,13 +1,30 @@
 # Hermes
 ### by [Elvin Yung](https://github.com/elvinyung)
 
-"*Know that you shall now be famous among the immortal gods, you and your mother both. These words are true: by my dogwood staff I swear I shall make you the renowned guide of the deathless gods.*"
-- [Homeric Hymn to Hermes](http://go.owu.edu/~rlelias/hermes.htm)
-
 ## Description
 Tilemap pathfinding library in Python. 
 
 ## Usage:
+Converting a two dimensional block of characters into a tilemap:
+```
+from hermes import tilemap
+tile_map_str = '''X1111X1
+1X1XXX1
+111111X
+XXXX111'''
+tile_map = tilemap.str_to_map(tile_map_str)
+# => [[None, 1, 1, 1, 1, None, 1], [1, None, 1, None, None, None, 1], [1, 1, 1, 1, 1, 1, None], [None, None, None, None, 1, 1, 1]]
+```
+
+Pathfinding between two points on a tilemap:
+```
+from hermes import pathfinders
+start = (3,0)
+end = (3,6)
+path = pathfinders.a_star(tile_map, start, end)
+# => [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6)]
+```
+
 ### Command-line Demo
 
 `python hermes.py [algorithm] [input_file] [start_x] [start_y] [end_x] [end_y]`

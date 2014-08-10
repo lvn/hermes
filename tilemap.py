@@ -13,8 +13,12 @@ def print_usage():
 def char_to_tile(char):
 		return int(char) if char.isdigit() else None
 
+# converts a tile into a charater
+def tile_to_char(tile):
+		return (str(tile) if isinstance(tile,int) else ('-' if (tile == '-') else 'X'))
+
 # reads string into map (2d array of booleans)
-def string_to_map(string):
+def str_to_map(string):
 	return [[char_to_tile(char) for char in line] for line in string.split('\n')]
 
 
@@ -39,15 +43,12 @@ def generate_to_file(filename,w,h,seed='X111122345'):
 		f.write('\n')
 
 # prints map to stdout, path is optional
-def map_to_string(grid, path=[]):
+def map_to_str(grid, path=[]):
 	height = len(grid)
 	width = len(grid[0])
 
 	for coord in path:
 		grid[coord[1]][coord[0]] = '-'
-
-	def tile_to_char(tile):
-		return (str(tile) if isinstance(tile,int) else ('-' if (tile == '-') else 'X'))
 
 	# reconstructs a map back from a 2D array to a block string
 	output = '\n'.join([''.join([tile_to_char(tile) for tile in row]) for row in grid])

@@ -37,11 +37,11 @@ XXXX111''',
 1111111'''
 ]
 
-test_maps = [tilemap.string_to_map(map_string) for map_string in test_map_strings]
+test_maps = [tilemap.str_to_map(map_string) for map_string in test_map_strings]
 
 class StringToMapTestCase1(unittest.TestCase):
 	def runTest(self):
-		assert(tilemap.string_to_map('X00\n012\nXYZ') == [[None, 0, 0], [0, 1, 2], [None, None, None]])
+		assert(tilemap.str_to_map('X00\n012\nXYZ') == [[None, 0, 0], [0, 1, 2], [None, None, None]])
 
 class BFSTestCase1(unittest.TestCase):
 	def runTest(self):
