@@ -10,6 +10,7 @@ Usage
 -----------
 Converting a two dimensional block of characters into a tilemap:
 .. highlight:: python
+
     from hermes import tilemap
     tile_map_str = '''X1111X1
     1X1XXX1
@@ -21,6 +22,7 @@ Converting a two dimensional block of characters into a tilemap:
 
 Pathfinding between two points on a tilemap:
 .. highlight:: python
+
     from hermes import pathfinders
     start = (3,0)
     end = (3,6)
@@ -47,7 +49,7 @@ The following is an example of a 6x4 grid:
 
 Algorithms
 -----------------
-- ``bfs`` or ``breadth-first-search`` - [Breadth-first search](http://en.wikipedia.org/wiki/Breadth-first_search).
-- ``dijkstra`` - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm).
-- ``greedy-bfs`` or ``greedy-best-first-search`` - Greedy heuristic variant of [best-first search](http://en.wikipedia.org/wiki/Best-first_search).
-- ``a-star`` - the [A* search algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm).
+- ``bfs`` or ``breadth-first-search`` - `Breadth-first search <http://en.wikipedia.org/wiki/Breadth-first_search>`_.
+- ``dijkstra`` - `Dijkstra's algorithm <http://en.wikipedia.org/wiki/Dijkstra's_algorithm>`_.
+- ``greedy-bfs`` or ``greedy-best-first-search`` - Greedy heuristic variant of ` best-first search <http://en.wikipedia.org/wiki/Best-first_search>`_.
+- ``a-star`` - the A* `search algorithm <http://en.wikipedia.org/wiki/A*_search_algorithm>`_.
