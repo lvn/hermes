@@ -9,7 +9,7 @@ Tilemap pathfinding library in Python.
 Usage
 -----------
 Converting a two dimensional block of characters into a tilemap:
-.. code-block:: python
+::
 
     from hermes import tilemap
     tile_map_str = '''X1111X1
@@ -21,7 +21,7 @@ Converting a two dimensional block of characters into a tilemap:
 
 
 Pathfinding between two points on a tilemap:
-.. code-block:: python
+::
 
     from hermes import pathfinders
     start = (3,0)
@@ -41,6 +41,7 @@ By standard, the program takes as input a plaintext file, representing a tilemap
 
 The following is an example of a 6x4 grid:
 ::
+
     111111
     1X1131
     1X2211
