@@ -1,5 +1,5 @@
 # Hermes
-### by `Elvin Yung <https://github.com/elvinyung>`_
+### by [Elvin Yung](https://github.com/elvinyung>)
 
 ### Description
 Tilemap pathfinding library in Python. 
